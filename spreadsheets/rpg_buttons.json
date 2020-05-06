@@ -1,0 +1,44 @@
+[
+    {
+        "id": "mainAttack",
+        "text": "image",
+        "icon": "attack/attackIcon",
+        "function": "load 1",
+        "previous": -5
+    },
+    {
+        "id": "mainItems",
+        "text": "image",
+        "icon": "itemsIcon",
+        "function": "items",
+        "previous": -5
+    },
+    {
+        "id": "mainDefend",
+        "text": "image",
+        "icon": "defendIcon",
+        "function": "defend",
+        "previous": -5
+    },
+    {
+        "id": "mainRun",
+        "text": "image",
+        "icon": "runIcon",
+        "function": "run",
+        "previous": -5
+    },
+    {
+        "id": "subAttack1",
+        "text": "Standard",
+        "icon": "attack/attackSub1",
+        "function": "load 2",
+        "previous": 0
+    },
+    {
+        "id": "subAttack2",
+        "text": "Special",
+        "icon": "attack/attackSub2",
+        "function": "load 3",
+        "previous": 0
+    }
+]

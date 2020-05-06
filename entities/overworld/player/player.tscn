@@ -1,0 +1,1932 @@
+[gd_scene load_steps=111 format=2]
+
+[ext_resource path="res://entities/overworld/player/player.gd" type="Script" id=1]
+[ext_resource path="res://entities/overworld/player/player_right.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 36.3562 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 11.0114, 37.1821 )
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "crouching"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "falling"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "ground_sliding"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "hitstun"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "jumping"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "running"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "walking"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "wall_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=58]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=62]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=67]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=68]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=69]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=71]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=80]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=81]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=82]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=83]
+
+[sub_resource type="AnimationNodeStateMachine" id=84]
+states/crouching/node = SubResource( 3 )
+states/crouching/position = Vector2( 557, 84 )
+states/falling/node = SubResource( 4 )
+states/falling/position = Vector2( 414, 84 )
+states/ground_sliding/node = SubResource( 5 )
+states/ground_sliding/position = Vector2( 431, 214 )
+states/hitstun/node = SubResource( 6 )
+states/hitstun/position = Vector2( 585, 214 )
+states/idle/node = SubResource( 7 )
+states/idle/position = Vector2( 274, 84 )
+states/jumping/node = SubResource( 8 )
+states/jumping/position = Vector2( 414, 151 )
+states/running/node = SubResource( 9 )
+states/running/position = Vector2( 274, 214 )
+states/walking/node = SubResource( 10 )
+states/walking/position = Vector2( 274, 151 )
+states/wall_sliding/node = SubResource( 11 )
+states/wall_sliding/position = Vector2( 557, 151 )
+transitions = [ "idle", "falling", SubResource( 12 ), "idle", "jumping", SubResource( 13 ), "idle", "walking", SubResource( 14 ), "walking", "idle", SubResource( 15 ), "walking", "jumping", SubResource( 16 ), "walking", "falling", SubResource( 17 ), "jumping", "falling", SubResource( 18 ), "jumping", "walking", SubResource( 19 ), "jumping", "idle", SubResource( 20 ), "falling", "jumping", SubResource( 21 ), "falling", "walking", SubResource( 22 ), "falling", "idle", SubResource( 23 ), "running", "walking", SubResource( 24 ), "running", "jumping", SubResource( 25 ), "running", "idle", SubResource( 26 ), "running", "falling", SubResource( 27 ), "idle", "running", SubResource( 28 ), "falling", "running", SubResource( 29 ), "walking", "running", SubResource( 30 ), "jumping", "running", SubResource( 31 ), "crouching", "falling", SubResource( 32 ), "crouching", "jumping", SubResource( 33 ), "crouching", "running", SubResource( 34 ), "crouching", "walking", SubResource( 35 ), "crouching", "idle", SubResource( 36 ), "idle", "crouching", SubResource( 37 ), "falling", "crouching", SubResource( 38 ), "jumping", "crouching", SubResource( 39 ), "walking", "crouching", SubResource( 40 ), "running", "crouching", SubResource( 41 ), "wall_sliding", "crouching", SubResource( 42 ), "wall_sliding", "falling", SubResource( 43 ), "wall_sliding", "jumping", SubResource( 44 ), "wall_sliding", "walking", SubResource( 45 ), "wall_sliding", "idle", SubResource( 46 ), "wall_sliding", "running", SubResource( 47 ), "running", "wall_sliding", SubResource( 48 ), "jumping", "wall_sliding", SubResource( 49 ), "walking", "wall_sliding", SubResource( 50 ), "idle", "wall_sliding", SubResource( 51 ), "falling", "wall_sliding", SubResource( 52 ), "crouching", "wall_sliding", SubResource( 53 ), "idle", "ground_sliding", SubResource( 54 ), "falling", "ground_sliding", SubResource( 55 ), "crouching", "ground_sliding", SubResource( 56 ), "walking", "ground_sliding", SubResource( 57 ), "jumping", "ground_sliding", SubResource( 58 ), "wall_sliding", "ground_sliding", SubResource( 59 ), "running", "ground_sliding", SubResource( 60 ), "ground_sliding", "running", SubResource( 61 ), "ground_sliding", "walking", SubResource( 62 ), "ground_sliding", "jumping", SubResource( 63 ), "ground_sliding", "wall_sliding", SubResource( 64 ), "ground_sliding", "crouching", SubResource( 65 ), "ground_sliding", "falling", SubResource( 66 ), "ground_sliding", "idle", SubResource( 67 ), "hitstun", "idle", SubResource( 68 ), "hitstun", "falling", SubResource( 69 ), "hitstun", "crouching", SubResource( 70 ), "hitstun", "walking", SubResource( 71 ), "hitstun", "jumping", SubResource( 72 ), "hitstun", "wall_sliding", SubResource( 73 ), "hitstun", "running", SubResource( 74 ), "hitstun", "ground_sliding", SubResource( 75 ), "idle", "hitstun", SubResource( 76 ), "falling", "hitstun", SubResource( 77 ), "crouching", "hitstun", SubResource( 78 ), "walking", "hitstun", SubResource( 79 ), "jumping", "hitstun", SubResource( 80 ), "wall_sliding", "hitstun", SubResource( 81 ), "running", "hitstun", SubResource( 82 ), "ground_sliding", "hitstun", SubResource( 83 ) ]
+graph_offset = Vector2( -20, 53 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=85]
+
+[sub_resource type="Animation" id=86]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -31.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.87 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../roofRaycasts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 9.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../wallRaycasts/rightWallRaycasts/rightWallRaycastUp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.82251, -58.5942 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../wallRaycasts/leftWallRaycasts/leftWallRaycastUp:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.785, -58.594 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../groundRaycasts/groundRaycastLeft:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.002, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../groundRaycasts/groundRaycastRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10.0129, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../wallRaycasts/leftWallRaycasts:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../wallRaycasts/rightWallRaycasts:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../roofRaycasts/roofRaycastLeft:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8.49067, -72.1718 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../roofRaycasts/roofRaycastRight:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.41885, -72.1718 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.001 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -31.5 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Hitbox/CollisionShape2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.001 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.87 ) ]
+}
+
+[sub_resource type="Animation" id=87]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -36 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../roofRaycasts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../wallRaycasts/rightWallRaycasts/rightWallRaycastUp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.82251, -67.2879 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../wallRaycasts/leftWallRaycasts/leftWallRaycastUp:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.78512, -67.2879 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../groundRaycasts/groundRaycastLeft:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.002, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../groundRaycasts/groundRaycastRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10.0129, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../roofRaycasts/roofRaycastLeft:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8.49067, -72.1718 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../roofRaycasts/roofRaycastRight:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.41885, -72.1718 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../wallRaycasts/leftWallRaycasts:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../wallRaycasts/rightWallRaycasts:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -35.8803 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Hitbox/CollisionShape2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=88]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -30.91 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.9, 0.87 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../roofRaycasts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 30.91 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../groundRaycasts/groundRaycastLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -18.9923, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../groundRaycasts/groundRaycastRight:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 18.9757, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../roofRaycasts/roofRaycastLeft:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -17.5288, -92.5065 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../roofRaycasts/roofRaycastRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 17.5374, -92.5021 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../wallRaycasts/leftWallRaycasts:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.01, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../wallRaycasts/rightWallRaycasts:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.02, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../wallRaycasts/leftWallRaycasts/leftWallRaycastUp:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.78512, -60.0012 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../wallRaycasts/rightWallRaycasts/rightWallRaycastUp:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.82251, -59.8765 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -30.92 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Hitbox/CollisionShape2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.85, 0.87 ) ]
+}
+
+[sub_resource type="Animation" id=89]
+resource_name = "hitstun"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -36 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../roofRaycasts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../wallRaycasts/rightWallRaycasts/rightWallRaycastUp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.82251, -67.2879 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../wallRaycasts/leftWallRaycasts/leftWallRaycastUp:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.78512, -67.2879 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../groundRaycasts/groundRaycastLeft:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.002, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../groundRaycasts/groundRaycastRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10.0129, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../roofRaycasts/roofRaycastLeft:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8.49067, -72.1718 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../roofRaycasts/roofRaycastRight:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.41885, -72.1718 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../wallRaycasts/leftWallRaycasts:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../wallRaycasts/rightWallRaycasts:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -35.8803 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Hitbox/CollisionShape2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=90]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -36 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../roofRaycasts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../wallRaycasts/rightWallRaycasts/rightWallRaycastUp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.82251, -67.2879 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../wallRaycasts/leftWallRaycasts/leftWallRaycastUp:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.78512, -67.2879 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../groundRaycasts/groundRaycastLeft:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.002, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../groundRaycasts/groundRaycastRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10.0129, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../roofRaycasts/roofRaycastLeft:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8.49067, -72.1718 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../roofRaycasts/roofRaycastRight:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.41885, -72.1718 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../wallRaycasts/leftWallRaycasts:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../wallRaycasts/rightWallRaycasts:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -35.8803 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Hitbox/CollisionShape2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=91]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -36 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../roofRaycasts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../wallRaycasts/rightWallRaycasts/rightWallRaycastUp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.82251, -67.2879 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../wallRaycasts/leftWallRaycasts/leftWallRaycastUp:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.78512, -67.2879 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../groundRaycasts/groundRaycastLeft:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.002, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../groundRaycasts/groundRaycastRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10.0129, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../roofRaycasts/roofRaycastLeft:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8.49067, -72.1718 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../roofRaycasts/roofRaycastRight:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.41885, -72.1718 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../wallRaycasts/leftWallRaycasts:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../wallRaycasts/rightWallRaycasts:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -35.8803 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Hitbox/CollisionShape2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=92]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -36 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../roofRaycasts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../wallRaycasts/rightWallRaycasts/rightWallRaycastUp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.82251, -67.2879 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../wallRaycasts/leftWallRaycasts/leftWallRaycastUp:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.78512, -67.2879 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../groundRaycasts/groundRaycastLeft:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.002, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../groundRaycasts/groundRaycastRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10.0129, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../roofRaycasts/roofRaycastLeft:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8.49067, -72.1718 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../roofRaycasts/roofRaycastRight:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.41885, -72.1718 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../wallRaycasts/leftWallRaycasts:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../wallRaycasts/rightWallRaycasts:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -35.8803 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Hitbox/CollisionShape2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=93]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -36 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../roofRaycasts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../wallRaycasts/rightWallRaycasts/rightWallRaycastUp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.82251, -67.2879 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../wallRaycasts/leftWallRaycasts/leftWallRaycastUp:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.78512, -67.2879 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../groundRaycasts/groundRaycastLeft:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.002, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../groundRaycasts/groundRaycastRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10.0129, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../roofRaycasts/roofRaycastLeft:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8.49067, -72.1718 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../roofRaycasts/roofRaycastRight:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.41885, -72.1718 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../wallRaycasts/leftWallRaycasts:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../wallRaycasts/rightWallRaycasts:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -35.8803 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Hitbox/CollisionShape2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=94]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -36 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../roofRaycasts:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../wallRaycasts/rightWallRaycasts/rightWallRaycastUp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.82251, -67.2879 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../wallRaycasts/leftWallRaycasts/leftWallRaycastUp:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.78512, -67.2879 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../groundRaycasts/groundRaycastLeft:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.002, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../groundRaycasts/groundRaycastRight:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10.0129, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../roofRaycasts/roofRaycastLeft:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8.49067, -72.1718 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../roofRaycasts/roofRaycastRight:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8.41885, -72.1718 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../wallRaycasts/leftWallRaycasts:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../wallRaycasts/rightWallRaycasts:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Hitbox/CollisionShape2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -35.8803 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Hitbox/CollisionShape2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=95]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=96]
+animation = "walking"
+
+[sub_resource type="AnimationNodeStateMachine" id=97]
+states/idle/node = SubResource( 95 )
+states/idle/position = Vector2( 364, 68 )
+states/walking/node = SubResource( 96 )
+states/walking/position = Vector2( 603, 88 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=98]
+
+[sub_resource type="Animation" id=99]
+length = 1.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=100]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=101]
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=102]
+resource_name = "hitstun"
+
+[sub_resource type="Animation" id=103]
+length = 1.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=104]
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=105]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=106]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=107]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=108]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[node name="player" type="KinematicBody2D"]
+collision_mask = 6
+script = ExtResource( 1 )
+jump_power = -300
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -35.0477 )
+texture = ExtResource( 2 )
+vframes = 5
+hframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -31.5 )
+scale = Vector2( 1, 0.87 )
+shape = SubResource( 1 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+modulate = Color( 0, 0.486275, 1, 1 )
+collision_layer = 8192
+collision_mask = 12312
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -31.5 )
+scale = Vector2( 1, 0.87 )
+shape = SubResource( 2 )
+
+[node name="stateMachine" type="AnimationTree" parent="."]
+tree_root = SubResource( 84 )
+anim_player = NodePath("states")
+active = true
+parameters/playback = SubResource( 85 )
+
+[node name="states" type="AnimationPlayer" parent="stateMachine"]
+anims/crouching = SubResource( 86 )
+anims/falling = SubResource( 87 )
+anims/ground_sliding = SubResource( 88 )
+anims/hitstun = SubResource( 89 )
+anims/idle = SubResource( 90 )
+anims/jumping = SubResource( 91 )
+anims/running = SubResource( 92 )
+anims/walking = SubResource( 93 )
+anims/wall_sliding = SubResource( 94 )
+
+[node name="groundRaycasts" type="Node2D" parent="."]
+
+[node name="groundRaycastLeft" type="RayCast2D" parent="groundRaycasts"]
+modulate = Color( 1, 1, 0, 1 )
+position = Vector2( -10.002, 0 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+collision_mask = 6
+
+[node name="groundRaycastRight" type="RayCast2D" parent="groundRaycasts"]
+modulate = Color( 1, 1, 0, 1 )
+position = Vector2( 10.0129, 0 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+collision_mask = 6
+
+[node name="roofRaycasts" type="Node2D" parent="."]
+position = Vector2( 0, 9.5 )
+
+[node name="roofRaycastLeft" type="RayCast2D" parent="roofRaycasts"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -8.49067, -72.1718 )
+enabled = true
+cast_to = Vector2( 0, -2 )
+collision_mask = 2
+
+[node name="roofRaycastRight" type="RayCast2D" parent="roofRaycasts"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 8.41885, -72.1718 )
+enabled = true
+cast_to = Vector2( 0, -2 )
+collision_mask = 2
+
+[node name="wallRaycasts" type="Node2D" parent="."]
+
+[node name="leftWallRaycasts" type="Node2D" parent="wallRaycasts"]
+
+[node name="leftWallRaycastUp" type="RayCast2D" parent="wallRaycasts/leftWallRaycasts"]
+modulate = Color( 0.686275, 0, 1, 1 )
+position = Vector2( -9.785, -58.594 )
+enabled = true
+cast_to = Vector2( -2, 0 )
+collision_mask = 2
+
+[node name="leftWallRaycastDown" type="RayCast2D" parent="wallRaycasts/leftWallRaycasts"]
+modulate = Color( 0.686275, 0, 1, 1 )
+position = Vector2( -9.78512, -8.55783 )
+enabled = true
+cast_to = Vector2( -2, 0 )
+collision_mask = 2
+
+[node name="rightWallRaycasts" type="Node2D" parent="wallRaycasts"]
+
+[node name="rightWallRaycastUp" type="RayCast2D" parent="wallRaycasts/rightWallRaycasts"]
+modulate = Color( 0.686275, 0, 1, 1 )
+position = Vector2( 9.82251, -58.5942 )
+enabled = true
+cast_to = Vector2( 2, 0 )
+collision_mask = 2
+
+[node name="rightWallRaycastDown" type="RayCast2D" parent="wallRaycasts/rightWallRaycasts"]
+modulate = Color( 0.686275, 0, 1, 1 )
+position = Vector2( 9.82251, -8.55783 )
+enabled = true
+cast_to = Vector2( 2, 0 )
+collision_mask = 2
+
+[node name="wallSlidingBuffer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 97 )
+anim_player = NodePath("AnimationPlayer")
+parameters/playback = SubResource( 98 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
+anims/crouching_idle = SubResource( 99 )
+anims/crouching_walking = SubResource( 100 )
+anims/falling = SubResource( 101 )
+anims/hitstun = SubResource( 102 )
+anims/idle = SubResource( 103 )
+anims/jumping = SubResource( 104 )
+anims/running = SubResource( 105 )
+anims/walking = SubResource( 106 )
+anims/wall_sliding = SubResource( 107 )
+anims/wall_sliding_jumping = SubResource( 108 )
+
+[node name="hitstunTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="area_shape_entered" from="Hitbox" to="." method="_on_Hitbox_area_shape_entered"]

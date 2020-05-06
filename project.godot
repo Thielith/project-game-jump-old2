@@ -1,0 +1,209 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "entity",
+"class": "enemy",
+"language": "GDScript",
+"path": "res://entities/overworld/enemies/enemy.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "entity",
+"language": "GDScript",
+"path": "res://entities/overworld/entity.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "entity_rpg",
+"language": "GDScript",
+"path": "res://entities/rpg/entity_rpg.gd"
+}, {
+"base": "entity_rpg",
+"class": "party_member",
+"language": "GDScript",
+"path": "res://entities/rpg/party/party_member.gd"
+}, {
+"base": "entity",
+"class": "player",
+"language": "GDScript",
+"path": "res://entities/overworld/player/player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "player_n",
+"language": "GDScript",
+"path": "res://entities/overworld/player/new/player.gd"
+} ]
+_global_script_class_icons={
+"enemy": "",
+"entity": "",
+"entity_rpg": "",
+"party_member": "",
+"player": "",
+"player_n": ""
+}
+
+[application]
+
+config/name="Project Game Jump"
+run/main_scene="res://scenes/World.tscn"
+config/icon="res://ui/rpg/icon.png"
+
+[autoload]
+
+global_var="*res://global_var.gd"
+
+[display]
+
+window/size/width=640
+window/size/height=360
+window/size/test_width=1280
+window/size/test_height=720
+window/vsync/use_vsync=false
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_select={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_next={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_prev={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_home={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_end={
+"deadzone": 0.5,
+"events": [  ]
+}
+left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+ ]
+}
+right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+ ]
+}
+up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+}
+down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
+ ]
+}
+run={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
+ ]
+}
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="entities"
+2d_physics/layer_2="ground"
+2d_physics/layer_3="semi_solid"
+2d_physics/layer_4="contact_damage"
+2d_physics/layer_5="interactables"
+2d_physics/layer_6="rpg_layer_1"
+2d_physics/layer_7="rpg_layer_2"
+2d_physics/layer_8="rpg_layer_3"
+2d_physics/layer_9="rpg_layer_4"
+2d_physics/layer_10="rpg_layer_5"
+2d_physics/layer_11="hitbox"
+2d_physics/layer_12="projectiles"
+
+[locale]
+
+translations=PoolStringArray(  )
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

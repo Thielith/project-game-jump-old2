@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/projectiles/projectile_rpg.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.83608
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 2.99273
+
+[node name="projectile" type="KinematicBody2D"]
+collision_layer = 2048
+collision_mask = 7
+script = ExtResource( 1 )
+hasGravity = true
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 1024
+
+[node name="hitbox" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource( 2 )
