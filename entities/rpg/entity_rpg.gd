@@ -27,7 +27,7 @@ var target
 export var attacks : Array = []
 var attackSpecials : Array = []
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	if enableGravity:
 		gravity()
 		if animationPlayer.assigned_animation.ends_with("r") and groundRaycast.is_colliding():
@@ -38,13 +38,13 @@ func _physics_process(_delta):
 				animationPlayer.play("return")
 	move_and_slide(velocity)
 
-func gravity():
+func gravity() -> void:
 	if not groundRaycast.is_colliding():
 		velocity.y += appliedGravity
 	elif velocity.y > 0.01:
 		velocity.y = 0
 
-func performAction():
+func performAction() -> void:
 	if not returning:
 		print(actionToPerform.function + "_" + actionToPerform.id)
 		setCombatLayer(newCombatLayer)
@@ -56,13 +56,13 @@ func performAction():
 		animationPlayer.play("idle")
 		endTurn()
 
-func moveToLocation():
+func moveToLocation() -> void:
 	animationPlayer.get_animation("moveToLocation").track_set_key_value(0, 0, position)
 	animationPlayer.get_animation("moveToLocation").track_set_key_value(0, 1, newLocation)
 	animationPlayer.stop()
 	animationPlayer.play("moveToLocation")
 
-func setCombatLayer(layer):
+func setCombatLayer(layer) -> void:
 	groundRaycast.set_collision_mask_bit(5, false)
 	groundRaycast.set_collision_mask_bit(6, false)
 	groundRaycast.set_collision_mask_bit(7, false)
@@ -78,19 +78,19 @@ func setCombatLayer(layer):
 	if layer != null:
 		groundRaycast.set_collision_mask_bit(4 + layer, true)
 		set_collision_mask_bit(4 + layer, true)
-func setCombatState(reading : bool, readable : bool, physical : bool):
+func setCombatState(reading : bool, readable : bool, physical : bool) -> void:
 	hitbox.monitoring = reading
 	hitbox.monitorable = reading
 	hitboxAttack.monitoring = readable
 	hitboxAttack.monitorable = readable
 	get_node("CollisionShape2D").disabled = !physical
 
-func setVelocity(change_x : float, change_y : float):
+func setVelocity(change_x : float, change_y : float) -> void:
 	if not typeof(change_x) == TYPE_BOOL:
 		velocity.x = change_x
 	if not typeof(change_y) == TYPE_BOOL:
 		velocity.y = change_y
-func setMoveVelocity(targetPos : Vector2, arc : bool):
+func setMoveVelocity(targetPos : Vector2, arc : bool) -> Vector2:
 	var changeX = (targetPos.x - position.x)
 	var changeY = (targetPos.y - position.y)
 	var slope = sqrt(changeX*changeX + changeY*changeY)
@@ -111,7 +111,7 @@ func setMoveVelocity(targetPos : Vector2, arc : bool):
 #	print("New Velocity Y: " + str(newVelocityY))
 	return Vector2(newVelocityX, newVelocityY)
 
-func returnToOrigin():
+func returnToOrigin() -> void:
 	enableGravity = false
 	setCombatLayer(combatLayer)
 	
@@ -123,7 +123,7 @@ func returnToOrigin():
 	target.setCombatState(false, false, false)
 	moveToLocation()
 
-func endTurn():
+func endTurn() -> void:
 	returning = false
 	turnEnded = true
 	setCombatState(false, false, false)
@@ -131,17 +131,17 @@ func endTurn():
 	get_node("../../").processingAttack = false
 	get_node("../../").checkPartyStatus()
 
-func playAnimation(anim : String):
+func playAnimation(anim : String) -> void:
 	animationPlayer.play(anim)
 
-func jump():
+func jump() -> void:
 	var calc : Vector2 = setMoveVelocity(targetLocation, true)
 	setVelocity(calc.x , calc.y)
 	
-func launch():
+func launch() -> void:
 	var calc : Vector2 = setMoveVelocity(targetLocation * 0.25, false)
 	setVelocity(calc.x, calc.y)
-func throwProjectile():
+func throwProjectile() -> void:
 	var activeProjectile = load("res://entities/projectiles/projectile_rpg.tscn").instance()
 	add_child(activeProjectile)
 	activeProjectile.position = $projSpawn.position

@@ -8,7 +8,7 @@ var gravity = global_var.gravity
 var groundDirection := 0
 var wallDirection := 0
 var roofDirection := 0
-onready var playbackAnim = $AnimationTree.get("parameters/playback")
+onready var playbackAnim = $AnimationTree.get("parameters/StateMachine/playback")
 onready var currentState = idle
 
 var slidingWallTimer := 0.2
@@ -36,20 +36,24 @@ const sliding = "sliding"
 const sliding_wall = "sliding_wall"
 const jumping_wall = "jumping_wall"
 
-func _ready():
+func _ready() -> void:
 	playbackAnim.start("idle")
 	$AnimationTree.active = true
 	yield(get_tree().create_timer(0.1), "timeout")
 
-func _process(delta):
+func _process(delta) -> void:
 	_state_processP(delta)
 	if Input.is_action_just_pressed("interact"):
 		print(velocity)
+	
 
-func _physics_process(_delta):
-	print(velocity)
+func _physics_process(_delta) -> void:
+#	print(velocity)
 	raycastDetection()
 	input_process()
+	
+	$AnimationTree/AnimationPlayer.set_speed_scale(abs(velocity.x / maxSpeed))
+	print($AnimationTree/AnimationPlayer.playback_speed)
 	
 	if enableGravity:
 		if groundDirection == -5:
@@ -64,13 +68,13 @@ func _physics_process(_delta):
 	
 	move_and_slide(velocity)
 
-func switchState(newState):
+func switchState(newState) -> void:
 	if newState != currentState:
 		print(newState)
 		currentState = newState
 		playbackAnim.travel(newState)
 
-func _state_process():
+func _state_process() -> void:
 	match currentState:
 		idle:
 			if velocity.x != 0 and groundDirection != -5:
@@ -96,7 +100,7 @@ func _state_process():
 			elif velocity.y < 0:
 				switchState(jumping)
 
-func _state_processP(delta):
+func _state_processP(delta) -> void:
 	match currentState:
 		jumping:
 			if wallDirection == input_direction:
@@ -104,65 +108,57 @@ func _state_processP(delta):
 					switchState(jumping_wall)
 				else:
 					switchState(sliding_wall)
-				return
 		falling:
 			if wallDirection == input_direction:
 				switchState(sliding_wall)
-				return
 			elif velocity.y == 0 and groundDirection != -5 and velocity.x != 0 and Input.is_action_pressed("run"):
 				switchState(running)
-				return
 		running:
 			if not Input.is_action_pressed("run"):
 				switchState(walking)
-				return
 			elif velocity.x == 0:
 				switchState(idle)
-				return
 			elif velocity.y > 0 and groundDirection == -5:
 				switchState(falling)
-				return
 		idle_crouch:
 			if not Input.is_action_pressed("down") and roofDirection == -5:
 				switchState(idle)
-				return
 			elif input_direction != 0 and groundDirection != -5:
 				switchState(walking_crouch)
-				return
 			elif groundDirection == -5:
 				switchState(falling)
-				return
 		walking_crouch:
 			speed = int(baseSpeed / 1.5)
 			maxSpeed = int(baseMaxSpeed / 1.5)
 			if not Input.is_action_pressed("down") and roofDirection == -5:
-				switchState(walking)
-				return
+				if Input.is_action_pressed("run"):
+					switchState(running)
+				else:
+					switchState(walking)
 			elif velocity.x == 0 and groundDirection != -5 and input_direction == 0:
 				switchState(idle_crouch)
-				return
 			elif groundDirection == -5:
 				switchState(falling)
-				return
 		sliding:
 			if not Input.is_action_pressed("down"):
-				if Input.is_action_pressed("run"):
-					if roofDirection != -5:
-						switchState(walking_crouch)
-					else:
-						switchState(running)
-				elif input_direction != 0:
-					if roofDirection == -5:
-						switchState(walking)
-					else:
-						switchState(walking_crouch)
-				else:
+				if input_direction == 0:
 					if roofDirection == -5:
 						switchState(idle)
 					else:
 						switchState(idle_crouch)
+						print("ello " + str(input_direction))
+				else:
+					if Input.is_action_pressed("run"):
+						if roofDirection != -5:
+							switchState(walking_crouch)
+						else:
+							switchState(running)
+					else:
+						if roofDirection == -5:
+							switchState(walking)
+						else:
+							switchState(walking_crouch)
 				friction = baseFriction
-				return
 		sliding_wall:
 			if velocity.y > 0:
 				velocity.y = 30
@@ -171,30 +167,19 @@ func _state_processP(delta):
 				slidingWallTimer -= delta
 				if Input.is_action_just_pressed("jump"):
 					slidingWallTimer = 0.2
-					velocity.y = jumpHeight
-					position.x += 5 * pow(-1, (1*int(wallDirection < 0)))
-					velocity.x = 300 * -pow(-1, (1*int(wallDirection < 0)))
-					wallDirection = -5
+					wallJump()
 					switchState(jumping_wall)
-					return
 				elif slidingWallTimer < 0:
 					slidingWallTimer = 0.2
 					switchState(falling)
-					return
 			elif Input.is_action_just_pressed("jump"):
-				velocity.y = jumpHeight
-				position.x += 5 * pow(-1, (1*int(wallDirection < 0)))
-				velocity.x = 300 * -pow(-1, (1*int(wallDirection < 0)))
-				wallDirection = -5
+				wallJump()
 				switchState(jumping_wall)
-				return
 			elif groundDirection != -5:
 				switchState(idle)
-				return
 		jumping_wall:
 			if velocity.y > 0:
 				switchState(falling)
-				return
 			elif wallDirection == input_direction:
 				if Input.is_action_just_pressed("jump"):
 					velocity.y = jumpHeight
@@ -203,10 +188,15 @@ func _state_processP(delta):
 					wallDirection = -5
 				else:
 					switchState(sliding_wall)
-				return
 	_state_process()
 
-func input_process():
+func wallJump() -> void:
+	velocity.y = jumpHeight
+	position.x += 5 * pow(-1, (1*int(wallDirection < 0)))
+	velocity.x = 300 * -pow(-1, (1*int(wallDirection < 0)))
+	wallDirection = -5
+
+func input_process() -> void:
 	input_direction = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	
 	if Input.is_action_pressed("run") and input_direction != 0 and velocity.x != 0 and not [idle_crouch, walking_crouch, sliding].has(currentState):
@@ -226,7 +216,6 @@ func input_process():
 		elif [walking, idle_crouch, idle].has(currentState) and input_direction != 0:
 			switchState(walking_crouch)
 		elif [running, sliding].has(currentState):
-			input_direction = 0
 			friction = baseFriction / 3
 			switchState(sliding)
 	
@@ -234,7 +223,7 @@ func input_process():
 		speed = baseSpeed
 		maxSpeed = baseMaxSpeed
 	
-	if abs(velocity.x) < maxSpeed and input_direction != 0 and wallDirection != input_direction:
+	if abs(velocity.x) < maxSpeed and input_direction != 0 and wallDirection != input_direction and not [sliding].has(currentState):
 		if abs(velocity.x + (speed * input_direction)) < maxSpeed:
 			velocity.x += speed * input_direction
 	else:
@@ -247,7 +236,7 @@ func input_process():
 #		velocity.x = -velocity.x
 #		print("hello")
 
-func raycastDetection():
+func raycastDetection() -> void:
 	var groundL = $raycasts/groundRaycastL
 	var groundR = $raycasts/groundRaycastR
 	groundDirection = int(groundR.is_colliding()) - int(groundL.is_colliding())

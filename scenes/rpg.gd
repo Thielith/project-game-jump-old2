@@ -31,7 +31,7 @@ var enemyTurn := false
 var processingAttack := true
 var enemyIndex := -1
 
-func setArrays():
+func setArrays() -> void:
 	#Sets array of positions for party
 	if currentPartyAmount == 1:
 		partyBasePositions = [get_node("partyPos/3")]
@@ -57,7 +57,7 @@ func setArrays():
 		get_node("enemyPos/1"),
 		get_node("enemyPos/3"),
 		get_node("enemyPos/5")]
-func spawn(): #Spawns party and enemys based on global_var arrays
+func spawn() -> void: #Spawns party and enemys based on global_var arrays
 	var i : int = 0
 	for e in global_var.battleEnemys:
 		var enemy = e.instance()
@@ -83,7 +83,7 @@ func spawn(): #Spawns party and enemys based on global_var arrays
 		uiParty[i].visible = true
 	portrait.get_node("AnimationPlayer").play("idle")
 
-func _ready():
+func _ready() -> void:
 	setArrays()
 	spawn()
 	updateUI()
@@ -91,7 +91,7 @@ func _ready():
 	transitionPlayer.play_backwards("fade")
 	uiAnimationPlayer.play("show")
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if Input.is_action_just_pressed("interact"):
 		pass
 	if enemyTurn and not processingAttack:
@@ -108,7 +108,7 @@ func _process(_delta):
 				enemies[enemyIndex].turnEnded = true
 				processingAttack = false
 
-func _input(event):
+func _input(event) -> void:
 	if not event is InputEventMouseMotion:
 		if not enemyTurn:
 			if Input.is_action_just_pressed("up"):
@@ -195,7 +195,7 @@ func _input(event):
 		else:
 			if Input.is_action_just_pressed("jump"):
 				enemies[enemyIndex].target.animationPlayer.play("dodge")
-func updateUI():
+func updateUI() -> void:
 	enemyArrow.visible = false
 	
 	if currentChoiceState == 0:
@@ -218,7 +218,7 @@ func updateUI():
 		enemyArrow.visible = true
 		enemyArrow.position = enemies[thingSelected[2]].position - Vector2(0, enemies[thingSelected[2]].get_node("Sprite").texture.get_height() - 10)
 
-func loadMenu(id : int):
+func loadMenu(id : int) -> void:
 	actionMenu.clear()
 	setVisibility(uiActionIcons, false)
 	setVisibility(uiActionText, false)
@@ -275,12 +275,12 @@ func loadMenu(id : int):
 			else:
 				uiActionText[i][j].text = actionMenu[i][j].text
 				uiActionText[i][j].visible = true
-func setVisibility(reference, boolen):
+func setVisibility(reference, boolen) -> void:
 	for i in reference:
 		for j in i:
 			j.visible = boolen
 
-func performAttacks(attacker, target):
+func performAttacks(attacker, target) -> void:
 	attacker.setCombatState(true, true, true)
 	target.setCombatState(true, true, true)
 	target.setCombatLayer(target.combatLayer)
@@ -297,7 +297,7 @@ func performAttacks(attacker, target):
 		attacker.newCombatLayer = attacker.combatLayer
 		attacker.performAction()
 
-func checkPartyStatus():
+func checkPartyStatus() -> void:
 	var partyFinished := true
 	if not enemyTurn:
 		for i in party:

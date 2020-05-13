@@ -12,12 +12,12 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func loadBattle():
+func loadBattle() -> void:
 	player.pauseGame = true
 	for e in enemys.get_children():
 		e.pauseGame = true
 	transitionPlayer.play("fade")
 
-func loadScene(path):
+func loadScene(path) -> void:
 	print(path)
 	get_tree().change_scene(path)
