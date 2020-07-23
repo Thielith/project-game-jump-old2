@@ -1,115 +1,112 @@
 extends entity
 class_name enemy
 
-onready var patrol_origin : Vector2 = get_global_position()
-var patrolDistance : int = 100
-var patrolDirection : int = 1
-onready var patrolStopTimer = get_node("patrolStopTimer")
+export var isPatroling : bool = true
+var patrolDirection := 0
+export var attackRange : Vector2
+export var idleTime := 1.0
+export var spawnsProjectile := false
+export var projectileSpawned := false
+export var projectileSprite : Texture
+export var projectileVelocity := Vector2.ZERO
+export var loadsBattle := true
 
 onready var player = get_parent().get_parent().get_node("player")
-var playerDirection : int
-export var chase_speed : float
+var playerDirection : int = 0
 export var pixel_width : int
-var eye_reach = 25 + pixel_width/2
+var eye_reach = 25 + pixel_width/2.0
 var vision = 32 * 10
 
-var chasing : bool = false
-var playingTimedAnimation : bool = false
-
-#state machine constants
-const alert = "alert"
-const chase = "chase"
+#state constants
 const attacking = "attacking"
+const hit = "hit"
+const die = "die"
+const chase = "chase"
 
-func _ready():
-	pauseGame = true
+func _ready() -> void:
+	patrolDirection = randi()%2-1
+	if patrolDirection == 0:
+		_ready()
+		return
 
-func _physics_process(delta):
-	if not pauseGame:
-		if not playingTimedAnimation and groundDirection != -5:
-			if not [alert, chase].has(currentState[0]):
-				if patrolStopTimer.time_left < 0.1:
-					patrol(patrolDirection)
-				else:
-					patrol(0)
-			elif currentState[0] == alert:
-				patrol(0)
-		else:
-			move(0, 0)
-		pass
+func _physics_process(_delta) -> void:
+	_physics_processE(_delta)
 
-func _process(delta):
-	if not pauseGame:
-		_state_processE()
-		if velocity.x > 0:
-			facingDirection = 1
-		elif velocity.x < 0:
-			facingDirection = -1
-		
-		if player.position.x > position.x:
-			playerDirection = 1
-		elif player.position.x < position.x:
-			playerDirection = -1
-		else:
-			playerDirection = 0
+func _process(_delta) -> void:
+	_state_processE()
+	playerDirection = int(position < player.position) - int(position > player.position)
+	if isPatroling:
+		maxSpeed = baseMaxSpeed
+		patrol()
 
-func _on_patrolStopTimer_timeout():
-	pass
-
-func _state_processE():
-#	print(currentState[0] + " | " + currentState[1])
-	match currentState[0]:
-		idle, walking:
-			if chasing:
-				playback.travel(chase)
-			elif sees_player():
-				playback.travel(alert)
-				return
-			return
-		alert:
-			yield(get_tree().create_timer(1.0), "timeout")
-			if sees_player():
-				chasing = true
-				playback.travel(chase)
-				return
-			else:
-				playback.travel(idle)
-				return
-			return
+func _state_processE() -> void:
+	match currentState:
+		idle:
+			if groundDirection != -5 and not isPatroling:
+				velocity.x = 0
+			if not $idleTimer.is_stopped():
+				yield($idleTimer, "timeout")
+				$walkingTimer.start()
+				isPatroling = true
+		falling:
+			if groundDirection != -5:
+				velocity.x = 0
 		chase:
-			if not sees_player():
-				chasing = false
-				playback.travel(idle)
+			chasePlayer()
+			maxSpeed = 100
+			if abs(player.position.x - position.x) < attackRange.x and abs(player.position.y - position.y) < attackRange.y:
+				velocity.x = 0
+				$walkingTimer.stop()
+				switchState(attacking, false)
 				return
-			return
+			elif abs(player.position.x - position.x) < 16 and player.position.y - position.y < -44:
+				velocity.x = 0
+				velocity.y = -20
+				$walkingTimer.stop()
+				switchState(jumping, false)
+				return
+			elif not sees_player():
+				$walkingTimer.stop()
+				velocity.x = 0
+				switchState(idle, false)
+				yield(get_tree().create_timer(idleTime), "timeout")
+				maxSpeed = baseMaxSpeed
+				isPatroling = true
+				return
 		attacking:
-			snapToFloor = false
-			if velocity.y > 0.5:
-				playback.travel(falling)
+			if groundDirection != -5 and velocity.x != 0 or spawnsProjectile and projectileSpawned:
+				projectileSpawned = false
+				switchState(idle, false)
+				yield(get_tree().create_timer(0.2), "timeout")
+				isPatroling = true
 				return
-			elif velocity.y == 0 and groundDirection != -5:
-				playback.travel(idle)
-				return
-			return
+		hit:
+			if groundDirection != -5:
+				velocity.x = 0
+		hitstun:
+			velocity = Vector2(0, -jumpHeight)
+		die:
+			pass
+	_state_process()
 
-func patrol(move_direction):
-	move(move_direction, 0)
-	if patrolStopTimer.is_stopped():
-		if position.x > patrol_origin.x + patrolDistance or wallDirection == 1:
-			if patrolDirection != -1:
-				patrolStopTimer.start()
-				patrolDirection = -1
-		elif position.x < patrol_origin.x - patrolDistance or wallDirection == -1:
-			if patrolDirection != 1:
-				patrolStopTimer.start()
-				patrolDirection = 1
-func chase():
-	max_speed = chase_speed
-	if player.position.x > position.x:
-		move(1, 0)
-	elif player.position.x < position.x:
-		move(-1, 0)
-func sees_player():
+func patrol() -> void:
+	if [abs(groundDirection), abs(wallDirection)].has(1) or $walkingTimer.is_stopped():
+		$walkingTimer.stop()
+		isPatroling = false
+		velocity.x = 0
+		position.x -= 1 * patrolDirection
+		yield(get_tree().create_timer(idleTime), "timeout")
+		patrolDirection = -patrolDirection
+		isPatroling = true
+		$walkingTimer.start()
+	elif groundDirection != -5:
+		move(patrolDirection)
+	
+	if sees_player():
+		isPatroling = false
+		switchState(chase, false)
+
+func sees_player() -> bool:
 	var eye_center = get_global_position()
 	var eye_top = eye_center + Vector2(0, -eye_reach)
 	var eye_left = eye_center + Vector2(-eye_reach, 0)
@@ -133,10 +130,14 @@ func sees_player():
 				return true
 	return false
 
-func jump(horizontal):
-	snapToFloor = false
-	playback.travel(jumping)
-	launch(horizontal, jump_power - 100)
+func chasePlayer() -> void:
+	move(playerDirection)
 
-func loadBattle():
-	get_parent().get_parent().loadBattle()
+func spawnProjectile(projectile):
+	var p = projectile.instance()
+	p.get_node("Sprite").texture = projectileSprite
+	p.hasGravity = true
+	p.loadsBattle = true
+	p.velocity = projectileVelocity
+	get_parent().add_child(p)
+	p.position = $projectileSpawn.get_global_position()

@@ -4,13 +4,13 @@ var gravity : float = 10.0
 var maxFallSpeed : int = 500
 
 #preloading all enemys
-var player = preload("res://entities/rpg/party/player/player_rpg.tscn")
+var player = preload("res://entities/rpg/allies/player_rpg.tscn")
 #var test_dummy = preload("res://entities/rpg/enemies/test_dummy.tscn")
-var slime = preload("res://entities/rpg/enemies/slimes/slime_small.tscn")
-var slime_medium = preload("res://entities/rpg/enemies/slimes/slime_medium.tscn")
+#var slime = preload("res://entities/rpg/enemies/slimes/slime_small.tscn")
+#var slime_medium = preload("res://entities/rpg/enemies/slimes/slime_medium.tscn")
 
-var battleParty : Array = [player]
-var battleEnemys : Array = [slime_medium]
+var battleAllies : Array = [player, player, player]
+var battleOpponents : Array = [player, player]
 var rpg_buttons := []
 var rpg_menus := []
 var rpg_actions := []

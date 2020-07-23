@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://entities/rpg/old/party/player/player_rpg.gd" type="Script" id=1]
+[ext_resource path="res://entities/rpg/old/party/player/player_rpg_right.png" type="Texture" id=2]
+[ext_resource path="res://ui/portraits/player.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 36.2102 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 11.052, 37.1833 )
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[node name="player_rpg" type="KinematicBody2D"]
+script = ExtResource( 1 )
+spriteHeight = 73.0
+portrait = ExtResource( 3 )
+attacks = [ [ "jump" ], [ "jump", "jump", "jump", "launch_weak", "slime_proj", "launch_weak", "launch_weak", "launch_weak", "jump", "slime_proj" ] ]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -36.4948 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -36.353 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+modulate = Color( 0, 0.486275, 1, 1 )
+monitoring = false
+monitorable = false
+collision_layer = 1024
+collision_mask = 8
+
+[node name="hitbox" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -36.3532 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="groundRaycast" type="RayCast2D" parent="."]
+position = Vector2( 0, -0.331004 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+collision_mask = 992
+collide_with_areas = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 3 )
+[connection signal="area_shape_entered" from="Hitbox" to="." method="_on_Hitbox_area_shape_entered"]

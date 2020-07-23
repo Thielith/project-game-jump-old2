@@ -1,44 +1,56 @@
 [
     {
         "id": "mainAttack",
-        "text": "image",
+        "text": "Attack",
         "icon": "attack/attackIcon",
-        "function": "load 1",
-        "previous": -5
+        "function": "loadMenu",
+        "numData": 1,
+        "description": "Your main way of dealing damage",
+        "descIcon": "attack"
     },
     {
         "id": "mainItems",
-        "text": "image",
+        "text": "Items",
         "icon": "itemsIcon",
         "function": "items",
-        "previous": -5
+        "numData": -1,
+        "description": "Access your inventory to use items",
+        "descIcon": "items"
     },
     {
         "id": "mainDefend",
-        "text": "image",
+        "text": "Defend",
         "icon": "defendIcon",
         "function": "defend",
-        "previous": -5
+        "numData": -1,
+        "description": "Increase defense for one turn",
+        "descIcon": "defend"
     },
     {
         "id": "mainRun",
-        "text": "image",
+        "text": "Run",
         "icon": "runIcon",
         "function": "run",
-        "previous": -5
+        "numData": -1,
+        "description": "Flee the battle",
+        "descIcon": "run"
     },
     {
         "id": "subAttack1",
         "text": "Standard",
         "icon": "attack/attackSub1",
-        "function": "load 2",
-        "previous": 0
+        "function": "loadPlayerMenu",
+        "numData": 0,
+        "description": " A list of standard attacks",
+        "descIcon": "icon"
     },
     {
         "id": "subAttack2",
         "text": "Special",
         "icon": "attack/attackSub2",
-        "function": "load 3",
-        "previous": 0
+        "function": "loadPlayerMenu",
+        "numData": 1,
+        "description": "A list of attacks that cost MP",
+        "descIcon": "icon"
     }
 ]

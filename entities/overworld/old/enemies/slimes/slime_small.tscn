@@ -1,0 +1,487 @@
+[gd_scene load_steps=88 format=2]
+
+[ext_resource path="res://entities/overworld/old/enemies/slimes/slime_small.gd" type="Script" id=1]
+[ext_resource path="res://entities/overworld/old/enemies/slimes/slime_small_left.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.535, 7.38301 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.85257, 7.67673 )
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "alert"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "attacking"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "chase"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "falling"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "hitstun"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "jumping"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=58]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=62]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+
+[sub_resource type="AnimationNodeStateMachine" id=66]
+states/alert/node = SubResource( 3 )
+states/alert/position = Vector2( 549, 220 )
+states/attacking/node = SubResource( 4 )
+states/attacking/position = Vector2( 827, 220 )
+states/chase/node = SubResource( 5 )
+states/chase/position = Vector2( 681, 220 )
+states/falling/node = SubResource( 6 )
+states/falling/position = Vector2( 414, 84 )
+states/hitstun/node = SubResource( 7 )
+states/hitstun/position = Vector2( 274, 220 )
+states/idle/node = SubResource( 8 )
+states/idle/position = Vector2( 274, 84 )
+states/jumping/node = SubResource( 9 )
+states/jumping/position = Vector2( 414, 151 )
+states/walking/node = SubResource( 10 )
+states/walking/position = Vector2( 274, 151 )
+transitions = [ "idle", "falling", SubResource( 11 ), "idle", "jumping", SubResource( 12 ), "idle", "walking", SubResource( 13 ), "walking", "idle", SubResource( 14 ), "walking", "jumping", SubResource( 15 ), "walking", "falling", SubResource( 16 ), "jumping", "falling", SubResource( 17 ), "jumping", "walking", SubResource( 18 ), "jumping", "idle", SubResource( 19 ), "falling", "jumping", SubResource( 20 ), "falling", "walking", SubResource( 21 ), "falling", "idle", SubResource( 22 ), "alert", "idle", SubResource( 23 ), "alert", "falling", SubResource( 24 ), "alert", "walking", SubResource( 25 ), "alert", "jumping", SubResource( 26 ), "idle", "alert", SubResource( 27 ), "falling", "alert", SubResource( 28 ), "jumping", "alert", SubResource( 29 ), "walking", "alert", SubResource( 30 ), "chase", "jumping", SubResource( 31 ), "chase", "alert", SubResource( 32 ), "chase", "falling", SubResource( 33 ), "chase", "walking", SubResource( 34 ), "chase", "idle", SubResource( 35 ), "idle", "chase", SubResource( 36 ), "walking", "chase", SubResource( 37 ), "falling", "chase", SubResource( 38 ), "jumping", "chase", SubResource( 39 ), "alert", "chase", SubResource( 40 ), "hitstun", "walking", SubResource( 41 ), "hitstun", "jumping", SubResource( 42 ), "hitstun", "alert", SubResource( 43 ), "hitstun", "chase", SubResource( 44 ), "hitstun", "attacking", SubResource( 45 ), "hitstun", "falling", SubResource( 46 ), "hitstun", "idle", SubResource( 47 ), "falling", "hitstun", SubResource( 48 ), "walking", "hitstun", SubResource( 49 ), "jumping", "hitstun", SubResource( 50 ), "alert", "hitstun", SubResource( 51 ), "chase", "hitstun", SubResource( 52 ), "attacking", "hitstun", SubResource( 53 ), "attacking", "chase", SubResource( 54 ), "attacking", "alert", SubResource( 55 ), "attacking", "jumping", SubResource( 56 ), "attacking", "walking", SubResource( 57 ), "attacking", "falling", SubResource( 58 ), "attacking", "idle", SubResource( 59 ), "alert", "attacking", SubResource( 60 ), "chase", "attacking", SubResource( 61 ), "jumping", "attacking", SubResource( 62 ), "walking", "attacking", SubResource( 63 ), "falling", "attacking", SubResource( 64 ), "idle", "attacking", SubResource( 65 ) ]
+graph_offset = Vector2( -20, 53 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=67]
+
+[sub_resource type="Animation" id=68]
+length = 0.001
+
+[sub_resource type="Animation" id=69]
+
+[sub_resource type="Animation" id=70]
+length = 0.001
+
+[sub_resource type="Animation" id=71]
+length = 0.001
+
+[sub_resource type="Animation" id=72]
+resource_name = "hitstun"
+length = 0.001
+
+[sub_resource type="Animation" id=73]
+length = 0.001
+
+[sub_resource type="Animation" id=74]
+length = 0.001
+
+[sub_resource type="Animation" id=75]
+length = 0.001
+
+[sub_resource type="AnimationNodeAnimation" id=76]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=77]
+animation = "walking"
+
+[sub_resource type="AnimationNodeStateMachine" id=78]
+states/idle/node = SubResource( 76 )
+states/idle/position = Vector2( 364, 68 )
+states/walking/node = SubResource( 77 )
+states/walking/position = Vector2( 603, 88 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=79]
+
+[sub_resource type="Animation" id=80]
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19, 20 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.55, 0.65 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ "pass" ],
+"method": "animationPlayerFunction"
+}, {
+"args": [ "attack" ],
+"method": "animationPlayerFunction"
+}, {
+"args": [ "none" ],
+"method": "animationPlayerFunction"
+} ]
+}
+
+[sub_resource type="Animation" id=81]
+length = 0.6
+step = 0.05
+
+[sub_resource type="Animation" id=82]
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 26, 27, 28, 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "pass" ],
+"method": "animationPlayerFunction"
+}, {
+"args": [ "none" ],
+"method": "animationPlayerFunction"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.470588, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=83]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=84]
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.45, 0.5, 0.55, 0.65, 0.7, 0.8, 0.85 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4, 5, 6, 7, 6, 8, 9 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ "pass" ],
+"method": "animationPlayerFunction"
+}, {
+"args": [ "jump" ],
+"method": "animationPlayerFunction"
+}, {
+"args": [ "none" ],
+"method": "animationPlayerFunction"
+} ]
+}
+
+[sub_resource type="Animation" id=85]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[node name="slime_small" type="KinematicBody2D"]
+collision_mask = 6
+script = ExtResource( 1 )
+walk_speed = 30.0
+speed_change = 6.0
+jump_power = -220
+pixel_width = 17
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -1.5 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -7.41971 )
+shape = SubResource( 1 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+modulate = Color( 0, 0.486275, 1, 1 )
+collision_layer = 8200
+collision_mask = 12296
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -7.40182 )
+shape = SubResource( 2 )
+
+[node name="stateMachine" type="AnimationTree" parent="."]
+tree_root = SubResource( 66 )
+anim_player = NodePath("states")
+active = true
+parameters/playback = SubResource( 67 )
+
+[node name="states" type="AnimationPlayer" parent="stateMachine"]
+anims/alert = SubResource( 68 )
+anims/attacking = SubResource( 69 )
+anims/chase = SubResource( 70 )
+anims/falling = SubResource( 71 )
+anims/hitstun = SubResource( 72 )
+anims/idle = SubResource( 73 )
+anims/jumping = SubResource( 74 )
+anims/walking = SubResource( 75 )
+
+[node name="groundRaycasts" type="Node2D" parent="."]
+
+[node name="groundRaycastLeft" type="RayCast2D" parent="groundRaycasts"]
+modulate = Color( 1, 1, 0, 1 )
+position = Vector2( -8.53435, -0.0963135 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+collision_mask = 6
+
+[node name="groundRaycastRight" type="RayCast2D" parent="groundRaycasts"]
+modulate = Color( 1, 1, 0, 1 )
+position = Vector2( 8.53484, -0.0963135 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+collision_mask = 6
+
+[node name="roofRaycasts" type="Node2D" parent="."]
+
+[node name="roofRaycastLeft" type="RayCast2D" parent="roofRaycasts"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -8.49067, -14.7365 )
+enabled = true
+cast_to = Vector2( 0, -2 )
+collision_mask = 2
+
+[node name="roofRaycastRight" type="RayCast2D" parent="roofRaycasts"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 8.41885, -14.7365 )
+enabled = true
+cast_to = Vector2( 0, -2 )
+collision_mask = 2
+
+[node name="wallRaycasts" type="Node2D" parent="."]
+
+[node name="leftWallRaycasts" type="Node2D" parent="wallRaycasts"]
+
+[node name="leftWallRaycastUp" type="RayCast2D" parent="wallRaycasts/leftWallRaycasts"]
+modulate = Color( 0.686275, 0, 1, 1 )
+position = Vector2( -8.45267, -13.0057 )
+enabled = true
+cast_to = Vector2( -2, 0 )
+collision_mask = 2
+
+[node name="leftWallRaycastDown" type="RayCast2D" parent="wallRaycasts/leftWallRaycasts"]
+modulate = Color( 0.686275, 0, 1, 1 )
+position = Vector2( -8.45278, -1.78468 )
+enabled = true
+cast_to = Vector2( -2, 0 )
+collision_mask = 2
+
+[node name="rightWallRaycasts" type="Node2D" parent="wallRaycasts"]
+
+[node name="rightWallRaycastUp" type="RayCast2D" parent="wallRaycasts/rightWallRaycasts"]
+modulate = Color( 0.686275, 0, 1, 1 )
+position = Vector2( 8.4069, -13.0059 )
+enabled = true
+cast_to = Vector2( 2, 0 )
+collision_mask = 2
+
+[node name="rightWallRaycastDown" type="RayCast2D" parent="wallRaycasts/rightWallRaycasts"]
+modulate = Color( 0.686275, 0, 1, 1 )
+position = Vector2( 8.4069, -1.78468 )
+enabled = true
+cast_to = Vector2( 2, 0 )
+collision_mask = 2
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 78 )
+anim_player = NodePath("AnimationPlayer")
+parameters/playback = SubResource( 79 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
+anims/attacking = SubResource( 80 )
+anims/falling = SubResource( 81 )
+anims/hitstun = SubResource( 82 )
+anims/idle = SubResource( 83 )
+anims/jumping = SubResource( 84 )
+anims/walking = SubResource( 85 )
+
+[node name="patrolStopTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="hitstunTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="area_shape_entered" from="Hitbox" to="." method="_on_Hitbox_area_shape_entered"]
+[connection signal="timeout" from="patrolStopTimer" to="." method="_on_patrolStopTimer_timeout"]

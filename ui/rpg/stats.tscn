@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://ui/rpg/font_ui.tres" type="DynamicFont" id=1]
+[ext_resource path="res://other_scripts/battleStats.gd" type="Script" id=3]
+[ext_resource path="res://ui/rpg/heads/player.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0.192157, 0.192157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.352941, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.203922, 0.384314, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0235294, 0, 0.345098, 1 )
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec4 outline_color : hint_color;
+
+void fragment(){
+	float size_x = 1.0/float(textureSize(TEXTURE, 0).x);
+	float size_y = 1.0/float(textureSize(TEXTURE, 0).y);
+	vec4 sprite_color = texture(TEXTURE, UV);
+	float alpha = -8.0 * sprite_color.a;
+	alpha += texture(TEXTURE, UV + vec2(size_x, 0)).a;
+	alpha += texture(TEXTURE, UV + vec2(-size_x, 0)).a;
+	alpha += texture(TEXTURE, UV + vec2(0, size_y)).a;
+	alpha += texture(TEXTURE, UV + vec2(0, -size_y)).a;
+	//For outlining corners
+	//Change the -4.0 to -8.0 in alpa if adding these lines
+	alpha += texture(TEXTURE, UV + vec2(size_x, size_y)).a;
+	alpha += texture(TEXTURE, UV + vec2(-size_x, size_y)).a;
+	alpha += texture(TEXTURE, UV + vec2(-size_x, -size_y)).a;
+	alpha += texture(TEXTURE, UV + vec2(size_x, -size_y)).a;
+	vec4 final_color = mix(sprite_color, outline_color, clamp(alpha, 0.0, 1.0));
+	COLOR = vec4(final_color.rgb, clamp(abs(alpha) + sprite_color.a, 0.0, 1.0));
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/outline_color = Color( 0.054902, 1, 0, 1 )
+
+[node name="battle_stats" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="hp_bar" type="ProgressBar" parent="."]
+margin_left = 81.0
+margin_top = 3.0
+margin_right = 166.0
+margin_bottom = 23.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 25.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="hp_bar"]
+margin_left = 3.0
+margin_top = 1.0
+margin_right = 73.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 1 )
+text = "100/100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mp_bar" type="ProgressBar" parent="."]
+margin_left = 81.0
+margin_top = 26.0
+margin_right = 166.0
+margin_bottom = 46.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+value = 59.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="mp_bar"]
+margin_left = 3.0
+margin_top = 1.0
+margin_right = 73.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 1 )
+text = "100/100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp" type="Label" parent="."]
+margin_left = 54.0
+margin_top = 4.0
+margin_right = 80.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 1 )
+text = "HP:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="mp" type="Label" parent="."]
+margin_left = 50.0
+margin_top = 27.0
+margin_right = 80.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 1 )
+text = "MP:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="player" type="Sprite" parent="."]
+material = SubResource( 6 )
+position = Vector2( 25, 23 )
+texture = ExtResource( 4 )

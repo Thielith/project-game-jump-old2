@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 export var hasGravity : bool
-export var startBattle : bool
 var velocity : Vector2 = Vector2.ZERO
 var gravity = global_var.gravity
 

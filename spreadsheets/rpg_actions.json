@@ -1,67 +1,77 @@
 [
     {
-        "id": "none",
-        "text": "You shouldn't see this",
+        "id": "base",
+        "text": "base",
         "icon": "icon",
-        "previous": 1,
         "function": "none",
         "cost": 0,
         "damage": 0,
-        "type": "none",
-        "reach": "none",
+        "type": "basic",
+        "reach": "any",
         "comboMax": 0,
-        "movePosition": false
+        "movePosition": false,
+        "color": "#FFFFFF",
+        "description": "base",
+        "descIcon": "icon"
     },
     {
         "id": "move",
-        "text": "You shouldn't see this",
+        "text": "move",
         "icon": "icon",
-        "previous": 1,
         "function": "fight",
         "cost": 0,
         "damage": 0,
-        "type": "none",
+        "type": "basic",
         "reach": "any",
         "comboMax": 0,
-        "movePosition": true
+        "movePosition": true,
+        "color": "#FFFFFF",
+        "description": "move to a location",
+        "descIcon": "icon"
     },
     {
         "id": "jump",
         "text": "Jump",
         "icon": "attack/attackIcon1",
-        "previous": 1,
         "function": "fight",
         "cost": 0,
         "damage": 1,
         "type": "basic",
         "reach": "any",
-        "comboMax": 2,
-        "movePosition": true
+        "comboMax": 1,
+        "movePosition": true,
+        "color": "#FFFFFF",
+        "description": "Jump:\nJump in the air and land on your foes",
+        "descIcon": "jump"
     },
     {
         "id": "launch_weak",
         "text": "Weak Launch",
         "icon": "icon",
-        "previous": 1,
         "function": "fight",
         "cost": 0,
         "damage": 1,
         "type": "basic",
         "reach": "ground",
         "comboMax": 0,
-        "movePosition": true
+        "movePosition": true,
+        "color": "#FFFFFF",
+        "description": "Launch:\nLaunch yourself at your foe",
+        "descIcon": "icon"
     },
     {
         "id": "slime_proj",
         "text": "Slime Ball",
         "icon": "icon",
-        "previous": 1,
         "function": "fight",
         "cost": 0,
         "damage": 2,
         "type": "basic",
         "reach": "any",
         "comboMax": 0,
-        "movePosition": false
+        "movePosition": false,
+        "color": "#FFFFFF",
+        "description": "Slime ball:\nThrow a condensed ball of slime at your target",
+        "descIcon": "icon"
     }
 ]

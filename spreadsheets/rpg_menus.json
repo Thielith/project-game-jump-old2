@@ -5,30 +5,12 @@
         "button2": "mainItems",
         "button3": "mainDefend",
         "button4": "mainRun",
-		"loadFromParty": false
+        "loadFromParty": false
     },
     {
         "id": 1,
         "button1": "subAttack1",
         "button2": "subAttack2",
-        "button3": "null",
-        "button4": "null",
-		"loadFromParty": false
-    },
-    {
-        "id": 2,
-        "button1": "attacks",
-        "button2": "attacks",
-        "button3": "attacks",
-        "button4": "attacks",
-		"loadFromParty": true
-    },
-    {
-        "id": 3,
-        "button1": "attackSpecials",
-        "button2": "attackSpecials",
-        "button3": "attackSpecials",
-        "button4": "attackSpecials",
-		"loadFromParty": true
+        "loadFromParty": false
     }
 ]
