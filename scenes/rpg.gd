@@ -18,13 +18,13 @@ func _ready():
 	spawn()
 	$transition/AnimationPlayer.play_backwards("fade")
 	
-	var overlay = load("res://ui/debug.tscn").instance()
-	overlay.add_stat("selectedAlly", self, "selectedAlly", false)
-	overlay.add_stat("comboTimer", allies[selectedAlly], "comboTimer", false)
-	overlay.add_stat("comboLimit", allies[selectedAlly], "comboLimit", false)
-	overlay.add_stat("returning", allies[selectedAlly], "returning", false)
-	overlay.add_stat("completedTurn", allies[selectedAlly], "completedTurn", false)
-	add_child(overlay)
+#	var overlay = load("res://ui/debug.tscn").instance()
+#	overlay.add_stat("selectedAlly", self, "selectedAlly", false)
+#	overlay.add_stat("comboTimer", allies[selectedAlly], "comboTimer", false)
+#	overlay.add_stat("comboLimit", allies[selectedAlly], "comboLimit", false)
+#	overlay.add_stat("returning", allies[selectedAlly], "returning", false)
+#	overlay.add_stat("completedTurn", allies[selectedAlly], "completedTurn", false)
+#	add_child(overlay)
 
 func spawn() -> void: #Spawns party and enemys based on global_var arrays
 	var i : int = 0
